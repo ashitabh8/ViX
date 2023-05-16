@@ -222,6 +222,7 @@ def convert_to_arduino(config):
     dir = config["dir"]
     sketch_name = config["sketch_name"]
     copy_command = f"cp {dir}/{sketch_name}_sketch.cpp {config['ard_dir']}/{config['ard_sketch_name']}.ino"
+    print(copy_command)
     os.system(copy_command)
     edit_sketch(config)
 
@@ -378,7 +379,7 @@ if __name__ == "__main__":
     # BETA BINOMIAL EXPERIMENT
     print("BETA BINOMIAL EXPERIMENT")
     bb_float_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/BetaBinomial",
+        "dir": "./BetaBinomial",
         "sketch_name": "BetaBinomial_float",
         "misc_flags": ["-O3"],
         "holes": {
@@ -393,13 +394,13 @@ if __name__ == "__main__":
         "result_file": "BetaBinomial_float_result.csv",
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.001,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/BetaBinomial/BetaBinomial_float_ard_run",
+        "ard_dir": "./BetaBinomial/BetaBinomial_float_ard_run",
         "ard_sketch_name": "BetaBinomial_float_ard_run",
         "end_time_comment": '"Total time BetaBinomial float Point:"',
     }
 
     bb_double_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/BetaBinomial",
+        "dir": "./BetaBinomial",
         "sketch_name": "BetaBinomial_double",
         "misc_flags": ["-O3"],
         "holes": {
@@ -414,13 +415,13 @@ if __name__ == "__main__":
         "result_file": "BetaBinomial_double_result.csv",
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.001,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/BetaBinomial/BetaBinomial_double_ard_run",
+        "ard_dir": "./BetaBinomial/BetaBinomial_double_ard_run",
         "ard_sketch_name": "BetaBinomial_double_ard_run",
         "end_time_comment": '"Total time BetaBinomial Double:"',
     }
 
     bb_fixed_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/BetaBinomial",
+        "dir": "./BetaBinomial",
         "sketch_name": "BetaBinomial_fixed",
         "misc_flags": ["-O3"],
         "holes": {
@@ -437,14 +438,14 @@ if __name__ == "__main__":
         "params":["iter", "mean", "sigma"],
         "learning_rate": 0.01,
         "scaling": 64,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/BetaBinomial/BetaBinomial_fixed_ard_run",
+        "ard_dir": "./BetaBinomial/BetaBinomial_fixed_ard_run",
         "ard_sketch_name": "BetaBinomial_fixed_ard_run",
         "end_time_comment": '"Total time BetaBinomial Fixed Point:"',
     }
-    # convert_to_arduino(bb_fixed_dict)
+    convert_to_arduino(bb_fixed_dict)
     # convert_to_arduino(bb_float_dict)
     # convert_to_arduino(bb_double_dict)
-    run_experiment(bb_fixed_dict)
+    #  run_experiment(bb_fixed_dict)
     # run_experiment(bb_float_dict)
     #  run_exp_10_times(bb_fixed_dict, ["mean"])
     # run_exp_10_times(bb_float_dict, ["mean"])
@@ -467,7 +468,7 @@ if __name__ == "__main__":
     print("TEMPERATURE EXPERIMENT")
 
     temperature_fixed_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Temperature",
+        "dir": "./Temperature",
         "sketch_name": "temperature_fixed",
         "misc_flags": ["-O3"],
         "holes": {
@@ -483,14 +484,14 @@ if __name__ == "__main__":
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.1,
         "scaling": 64,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Temperature/Temperature_fixed_ard_run",
+        "ard_dir": "./Temperature/Temperature_fixed_ard_run",
         "ard_sketch_name": "Temperature_fixed_ard_run",
         "end_time_comment": '"Total time Temperature Fixed Point:"',
 
     }
 
     temperature_float_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Temperature",
+        "dir": "./Temperature",
         "sketch_name": "temperature_float",
         "misc_flags": ["-O3"],
         "holes": {
@@ -504,14 +505,14 @@ if __name__ == "__main__":
         "result_file": "temperature_float_result.csv",
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.1,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Temperature/Temperature_float_ard_run",
+        "ard_dir": "./Temperature/Temperature_float_ard_run",
         "ard_sketch_name": "Temperature_float_ard_run",
         "end_time_comment": '"Total time Temperature Float Point:"',
 
     }
 
     temperature_double_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Temperature",
+        "dir": "./Temperature",
         "sketch_name": "temperature_double",
         "misc_flags": ["-O3"],
         "holes": {
@@ -526,14 +527,14 @@ if __name__ == "__main__":
         "result_file": "temperature_double_result.csv",
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.1,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Temperature/Temperature_double_ard_run",
+        "ard_dir": "./Temperature/Temperature_double_ard_run",
         "ard_sketch_name": "Temperature_double_ard_run",
         "end_time_comment": '"Total time Temperature double Point:"',
     }
 
     # convert_to_arduino(temperature_fixed_dict)
-    convert_to_arduino(temperature_float_dict)
-    convert_to_arduino(temperature_double_dict)
+    #  convert_to_arduino(temperature_float_dict)
+    #  convert_to_arduino(temperature_double_dict)
     # run_experiment(temperature_fixed_dict)
     # run_exp_10_times(temperature_fixed_dict, ["mean"])
     # run_exp_10_times(temperature_float_dict, ["mean"])
@@ -549,7 +550,7 @@ if __name__ == "__main__":
 
     print("LIGHTSPEED EXPERIMENT")
     lightspeed_float_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Lightspeed",
+            "dir": "./Benchmarks/Lightspeed",
             "sketch_name": "lightspeed_float",
             "misc_flags": ["-O3"],
             "holes": {
@@ -567,7 +568,7 @@ if __name__ == "__main__":
         }
 
     lightspeed_fixed_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Lightspeed",
+        "dir": "./Benchmarks/Lightspeed",
         "sketch_name": "lightspeed_fixed",
         "misc_flags": ["-O3"],
         "holes": {
@@ -593,7 +594,7 @@ if __name__ == "__main__":
     print("PLANKTON EXPERIMENT")
 
     plankton_fixed_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Plankton",
+        "dir": "./Plankton",
         "sketch_name": "plankton_fixed",
         "misc_flags": ["-O3"],
         "holes": {
@@ -609,13 +610,13 @@ if __name__ == "__main__":
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.1,
         "scaling": 512,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Plankton/Plankton_fixed_ard_run",
+        "ard_dir": "./Plankton/Plankton_fixed_ard_run",
         "ard_sketch_name": "Plankton_fixed_ard_run",
         "end_time_comment": '"Total time Plankton Fixed Point:"',
     }
 
     plankton_float_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Plankton",
+        "dir": "./Plankton",
         "sketch_name": "plankton_float",
         "misc_flags": ["-O3"],
         "holes": {
@@ -629,13 +630,13 @@ if __name__ == "__main__":
         "result_file": "plankton_float_result.csv",
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.01,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Plankton/Plankton_float_ard_run",
+        "ard_dir": "./Plankton/Plankton_float_ard_run",
         "ard_sketch_name": "Plankton_float_ard_run",
         "end_time_comment": '"Total time Plankton Float Point:"',
     }
 
     plankton_double_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Plankton",
+        "dir": "./Plankton",
         "sketch_name": "plankton_double",
         "misc_flags": ["-O3"],
         "holes": {
@@ -650,7 +651,7 @@ if __name__ == "__main__":
         "result_file": "plankton_double_result.csv",
         "params":["iter","mean", "sigma"],
         "learning_rate": 0.01,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Plankton/Plankton_double_ard_run",
+        "ard_dir": "./Plankton/Plankton_double_ard_run",
         "ard_sketch_name": "Plankton_double_ard_run",
         "end_time_comment": '"Total time Plankton double Point:"',
     }
@@ -674,7 +675,7 @@ if __name__ == "__main__":
     print("UNEMPLOYMENT EXPERIMENT")
 
     unemployment_fixed_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Unemployment",
+        "dir": "./Benchmarks/Unemployment",
         "sketch_name": "Unemployment_fixed",
         "misc_flags": ["-O3"],
         "holes": {
@@ -695,7 +696,7 @@ if __name__ == "__main__":
     }
 
     unemployment_float_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Unemployment",
+        "dir": "./Unemployment",
         "sketch_name": "Unemployment_float",
         "misc_flags": ["-O3"],
         "holes": {
@@ -713,7 +714,7 @@ if __name__ == "__main__":
     }
 
     unemployment_double_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Unemployment",
+        "dir": "./Benchmarks/Unemployment",
         "sketch_name": "Unemployment_double",
         "misc_flags": ["-O3"],
         "holes": {
@@ -750,7 +751,7 @@ if __name__ == "__main__":
     # for 5000 data points PY:FRAC = 12, scaling 7
     # for 10000 data points PY:FRAC = 10, scaling 7
     linreg_fixed_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/LinReg",
+        "dir": "./LinReg",
         "sketch_name": "LinReg_a0_x_p_b_fixed",
         "misc_flags": ["-O3"],
         "holes": {
@@ -768,13 +769,13 @@ if __name__ == "__main__":
         "learning_rate": 0.01,
         "scaling": 256,
         "stopping_params":["grad_a0","grad_a1"],
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/LinReg/LinReg_a0_x_p_b_fixed_ard_run",
+        "ard_dir": "./LinReg/LinReg_a0_x_p_b_fixed_ard_run",
         "ard_sketch_name": "LinReg_a0_x_p_b_fixed_ard_run",
         "end_time_comment": '"Total time LinReg Fixed Point:"',
     }
 
     linreg_float_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/LinReg",
+        "dir": "./LinReg",
         "sketch_name": "LinReg_a0_x_p_b_float_wo_scaling",
         "misc_flags": ["-O3"],
         "holes": {
@@ -789,13 +790,13 @@ if __name__ == "__main__":
         "result_file": "linreg_float_result.csv",
         "params":["iter","a0_mu","a0_sigma", "a1_mu","a1_sigma"],
         "learning_rate": 0.001,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/LinReg/LinReg_a0_x_p_b_float_wo_scaling_ard_run",
+        "ard_dir": "./LinReg/LinReg_a0_x_p_b_float_wo_scaling_ard_run",
         "ard_sketch_name": "LinReg_a0_x_p_b_float_wo_scaling_ard_run",
         "end_time_comment": '"Total time LinReg Float Point:"',
     }
 
     linreg_double_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/LinReg",
+        "dir": "./LinReg",
         "sketch_name": "LinReg_a0_x_p_b_double_wo_scaling",
         "misc_flags": ["-O3"],
         "holes": {
@@ -810,7 +811,7 @@ if __name__ == "__main__":
         "result_file": "linreg_double_result.csv",
         "params":["iter","a0_mu","a0_sigma", "a1_mu","a1_sigma"],
         "learning_rate": 0.001,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/LinReg/LinReg_a0_x_p_b_double_wo_scaling_ard_run",
+        "ard_dir": "./LinReg/LinReg_a0_x_p_b_double_wo_scaling_ard_run",
         "ard_sketch_name": "LinReg_a0_x_p_b_double_wo_scaling_ard_run",
         "end_time_comment": '"Total time LinReg Double Point:"',
     }
@@ -837,9 +838,9 @@ if __name__ == "__main__":
     #     run_experiment(linreg_fixed_dict)
     #################
 
-    # convert_to_arduino(linreg_fixed_dict)
+    #  convert_to_arduino(linreg_fixed_dict)
     # convert_to_arduino(linreg_float_dict)
-    # convert_to_arduino(linreg_double_dict)
+    convert_to_arduino(linreg_double_dict)
 
     # run_experiment(linreg_fixed_dict)
     # run_experiment(linreg_float_dict)
@@ -854,7 +855,7 @@ if __name__ == "__main__":
     # run_exp_10_times(linreg_fixed_dict, ["a0_mu","a1_mu"])
     print("Poly1 EXPERIMENT")
     poly1_fixed_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg",
+            "dir": "./Benchmarks/PolyReg",
             "sketch_name": "poly1_fixed",
             "misc_flags": ["-O3"],
             "holes": {
@@ -871,14 +872,14 @@ if __name__ == "__main__":
             "params":["iter","mean","sigma"],
             "learning_rate": 0.01,
             "scaling": 512,
-            "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg/poly1_fixed_ard_run",
+            "ard_dir": "./PolyReg/poly1_fixed_ard_run",
             "ard_sketch_name": "poly1_fixed_ard_run",
             "end_time_comment": '"Total time Poly1 Fixed Point:"',
             
         }
     
     poly1_float_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg",
+            "dir": "./Benchmarks/PolyReg",
             "sketch_name": "poly1_float",
             "misc_flags": ["-O3"],
             "holes": {
@@ -893,13 +894,13 @@ if __name__ == "__main__":
             "result_file": "poly1_float_result.csv",
             "params":["iter","mean","sigma"],
             "learning_rate": 0.01,
-            "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg/poly1_float_ard_run",
+            "ard_dir": "./PolyReg/poly1_float_ard_run",
             "ard_sketch_name": "poly1_float_ard_run",
             "end_time_comment": '"Total time Poly1 Float Point:"',
     }
 
     poly1_double_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg",
+            "dir": "./Benchmarks/PolyReg",
             "sketch_name": "poly1_double",
             "misc_flags": ["-O3"],
             "holes": {
@@ -914,7 +915,7 @@ if __name__ == "__main__":
             "result_file": "poly1_double_result.csv",
             "params":["iter","mean","sigma"],
             "learning_rate": 0.01,
-            "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg/poly1_double_ard_run",
+            "ard_dir": "./PolyReg/poly1_double_ard_run",
             "ard_sketch_name": "poly1_double_ard_run",
             "end_time_comment": '"Total time Poly1 Double Point:"',
     }
@@ -967,7 +968,7 @@ if __name__ == "__main__":
 
     print("Kalman1D EXPERIMENT")
     kalman1d_double_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Kalman1D",
+        "dir": "./Benchmarks/Kalman1D",
         "sketch_name": "kalman1d_double",
         "misc_flags": ["-O3"],
         "holes": {
@@ -982,14 +983,14 @@ if __name__ == "__main__":
         "result_file": "kalman1d_double_result.csv",
         "params":["iter","mean","sigma"],
         "learning_rate": 0.01,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Kalman1D/kalman1d_double_ard_run",
+        "ard_dir": "./Kalman1D/kalman1d_double_ard_run",
         "ard_sketch_name": "kalman1d_double_ard_run",
         "end_time_comment": '"Total time Temperature double Point:"',
     }
 
 
     kalman1d_fixed_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Kalman1D",
+        "dir": "./Benchmarks/Kalman1D",
         "sketch_name": "kalman1d_fixed",
         "misc_flags": ["-O3"],
         "holes": {
@@ -1005,14 +1006,14 @@ if __name__ == "__main__":
         "result_file": "kalman1d_fixed_result.csv",
         "params":["iter","mean","sigma"],
         "learning_rate": 0.01,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Kalman1D/kalman1d_fixed_ard_run",
+        "ard_dir": "./Kalman1D/kalman1d_fixed_ard_run",
         "ard_sketch_name": "kalman1d_fixed_ard_run",
         "end_time_comment": '"Total time Temperature fixed Point:"',
     }
 
 
     kalman1d_float_dict = {
-        "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Kalman1D",
+        "dir": "./Benchmarks/Kalman1D",
         "sketch_name": "kalman1d_float",
         "misc_flags": ["-O3"],
         "holes": {
@@ -1027,7 +1028,7 @@ if __name__ == "__main__":
         "result_file": "kalman1d_float_result.csv",
         "params":["iter","mean","sigma"],
         "learning_rate": 0.01,
-        "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/Kalman1D/kalman1d_float_ard_run",
+        "ard_dir": "./Kalman1D/kalman1d_float_ard_run",
         "ard_sketch_name": "kalman1d_float_ard_run",
         "end_time_comment": '"Total time Temperature float Point:"',
     }
@@ -1044,7 +1045,7 @@ if __name__ == "__main__":
     print("POLY2 EXPERIMENT")
 
     poly2_fixed_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg",
+            "dir": "./Benchmarks/PolyReg",
             "sketch_name": "poly2_fixed",
             "misc_flags": ["-O3"],
             "holes": {
@@ -1062,13 +1063,13 @@ if __name__ == "__main__":
             "learning_rate": 0.01,
             "scaling": 512,
             "stopping_params":["grad_a0","grad_a1"],
-            "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg/poly2_fixed_ard_run",
+            "ard_dir": "./PolyReg/poly2_fixed_ard_run",
             "ard_sketch_name": "poly2_fixed_ard_run",
             "end_time_comment": '"Total time Poly2 Fixed Point:"',
     }
 
     poly2_float_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg",
+            "dir": "./Benchmarks/PolyReg",
             "sketch_name": "poly2_float",
             "misc_flags": ["-O3"],
             "holes": {
@@ -1083,13 +1084,13 @@ if __name__ == "__main__":
             "result_file": "poly2_float_result.csv",
             "params":["iter","a0_mean", "a0_sigma", "a1_mean", "a1_sigma"],
             "learning_rate": 0.01,
-            "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg/poly2_float_ard_run",
+            "ard_dir": "./PolyReg/poly2_float_ard_run",
             "ard_sketch_name": "poly2_float_ard_run",
             "end_time_comment": '"Total time Poly2 Float Point:"',
     }
 
     poly2_double_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg",
+            "dir": "./Benchmarks/PolyReg",
             "sketch_name": "poly2_double",
             "misc_flags": ["-O3"],
             "holes": {
@@ -1104,7 +1105,7 @@ if __name__ == "__main__":
             "result_file": "poly2_double_result.csv",
             "params":["iter","a0_mean", "a0_sigma", "a1_mean", "a1_sigma"],
             "learning_rate": 0.01,
-            "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg/poly2_double_ard_run",
+            "ard_dir": "./PolyReg/poly2_double_ard_run",
             "ard_sketch_name": "poly2_double_ard_run",
             "end_time_comment": '"Total time Poly2 Double Point:"',
     }
@@ -1147,25 +1148,6 @@ if __name__ == "__main__":
     # run_exp_10_times(poly2_float_dict, ["a0_mean", "a1_mean"])
 
     # POLY3 
-    print("POLY3 EXPERIMENT")
-    poly3_float_dict = {
-            "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg",
-            "sketch_name": "poly3_float",
-            "misc_flags": ["-O3"],
-            "holes": {
-                "[PY:NUM_DATA_SAMPLES]" : "1000",
-                "[PY:LEARNING_RATE]" : "0.001",
-                "[PY:TYPE]" : "float",
-                "[PY:NUM_SAMPLES]" : "4",
-                "[PY:NUM_ITERS]" : "1000",
-            },
-            "result_file": "poly3_float_result.csv",
-            "params":["iter","a0_mean", "a0_sigma", "a1_mean", "a1_sigma"],
-            "learning_rate": 0.01,
-            "ard_dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/PolyReg/poly3_float_ard_run",
-            "ard_sketch_name": "poly3_float_ard_run",
-            "end_time_comment": '"Total time Poly3 Float Point:"',
-    }
 
     # run_experiment(poly3_float_dict)
     # run_exp_10_times(poly3_float_dict, ["a0_mean", "a0_sigma", "a1_mean", "a1_sigma"])
@@ -1179,7 +1161,7 @@ if __name__ == "__main__":
 
 
     # linreg_fixed_data_exp = {
-    #     "dir": "/home/ashitabh/Documents/fpm_test_code/Benchmarks/LinReg",
+    #     "dir": "./Benchmarks/LinReg",
     #     "sketch_name": "LinReg_a0_x_p_b_fixed",
     #     "misc_flags": ["-O3"],
     #     "holes": {

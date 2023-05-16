@@ -46,8 +46,9 @@ Serial.begin(9600); while(!Serial){;}
     auto p_prior = uniform_dist<T>(lb, ub, p_sample);
     Constant<T> N(1), data(0.45);
     auto mu_gauss = T{N.value()} * p_prior/T{100};
+    std::cout << "mu_gauss: " << mu_gauss.value() << std::endl;
     auto sigma_gauss = sqrt(T{N.value()} * (p_prior/T{100}) * (T{1} - (p_prior/T{100})));
-
+    std::cout << "sigma_gauss: " << sigma_gauss.value() << std::endl;
     auto succ = normal_dist<T>(mu_gauss, sigma_gauss, data);
     // auto succ = binomial_dist<T>(N, p_prior, data);
 
@@ -59,7 +60,7 @@ Serial.begin(9600); while(!Serial){;}
         const int NUM_ITERS = 1500;
         T NUM_SAMPLES_T = (T) NUM_SAMPLES;
         T learning_rate = (T) 0.01;
-        T SCALING = 16;
+        T SCALING = 2;
         T sigma_lb = (T) SIGMA_LB;
         T diff_elbo_mean = (T) 0;
         T diff_elbo_sigma = (T) 0;
