@@ -55,6 +55,24 @@ Y = Observed(dist = Normal(a0 * data , 1, name = 'Y'), data = Y_obs_data, name =
 
 The observed variable is defined using `Observed()` object.
 
+### Build Model and Generate Code
+
+```python
+M = Model([Y, a0, data], params = parameters)
+gen_code(M, file_name = "test_1v", type = "fixed") #type = fixed/float/double
+```
+
+The priors, data objects and observed variable need to be passed as a list to `Model()`. `Model()` object is passed to gen_code. When `type` is set to `"fixed"` the PyVix runs the interval analysis to generate a fixed point configuration that supports the program.
+
+
+### Warnings
+
+The x86 version of the code will print warnings about potential overflows. 
+
+If the analysis generates a fixed point configuration not supported by the fixed point library then it will generate a warning and resort to a default value for the fractional bits of 12 and estimate K and I accordingly.
+
+
+
 
 Notes:
 
