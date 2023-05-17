@@ -21,6 +21,8 @@ b) Cpp interface: The header files can directly be used to write the probabilist
 
 ```
 
+First, we define the parameters of the posterior using `Variable()` or `Constant()`. 
+
 Notes:
 
 Benchmarks/run_benchmarks.py can be used to easily run all experiments, and generate the arduino code from the cpp files.
